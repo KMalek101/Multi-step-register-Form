@@ -1,7 +1,5 @@
 body {
     display: flex;
-    width : 1280px;
-    height : 800px;
     margin: 0;
     flex-direction: column;
     background-color: #121826;
