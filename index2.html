@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <svg class="svg-1" width="749" height="749" viewBox="0 0 749 749" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="374.5" cy="374.5" r="374.5" fill="url(#paint0_radial_779_2273)" fill-opacity="0.3"/>
+        <defs>
+        <radialGradient id="paint0_radial_779_2273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(374.5 374.5) rotate(90) scale(374.5)">
+        <stop stop-color="#652CD1"/>
+        <stop offset="1" stop-color="#652CD1" stop-opacity="0"/>
+        </radialGradient>
+        </defs>
+    </svg>
+
+    <div class="container">
+
+        <h3>Which topics you are interested in?</h3>
+        
+        <div class="options" onclick="toggleCheckbox('checkbox_1')" id="option1">
+            Software Development
+            <input type="checkbox" id="checkbox_1" class="checkbox" onclick="event.stopPropagation();">
+        </div>
+        
+        <div class="options" onclick="toggleCheckbox('checkbox_2')" id="option2">
+            User Experience
+            <input type="checkbox" id="checkbox_2" class="checkbox" onclick="event.stopPropagation();">
+        </div>
+        
+        <div class="options" onclick="toggleCheckbox('checkbox_3')" id="option3">
+            Graphic Design
+            <input type="checkbox" id="checkbox_3" class="checkbox" onclick="event.stopPropagation();">
+        </div>
+        
+        <script>
+            let myList = [];
+            function toggleCheckbox(checkboxId) {
+                var checkbox = document.getElementById(checkboxId);
+                checkbox.checked = !checkbox.checked;
+                
+                myList = [];
+                // Log text of all checkboxes
+                var checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach(function(checkbox) {
+                    var text = checkbox.parentElement.innerText;
+                    if (checkbox.checked) {
+                        myList.push(text);
+                    }
+                });
+            }
+            function submit() {
+                if (myList.length === 0){
+                    alert('You must at least select one interest');
+                    return;
+                }
+                else{
+                    localStorage.setItem('savedList', myList);
+                    window.location.href = 'index3.html';
+                }
+            }
+        </script>
+
+
+        <div class="button-container">
+            <button onclick="submit()">Continue</button>
+        </div>
+
+    </div>
+    <div class="slider">
+
+        <p>Step 2 of 3</p>
+
+        <div class="circles prev"></div>            
+        <div class="circles current"></div>            
+        <div class="circles"></div>                
+    </div>
+
+    <svg class="svg-2" width="749" height="749" viewBox="0 0 749 749" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="374.5" cy="374.5" r="374.5" fill="url(#paint0_radial_779_2273)" fill-opacity="0.3"/>
+        <defs>
+        <radialGradient id="paint0_radial_779_2273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(374.5 374.5) rotate(90) scale(374.5)">
+        <stop stop-color="#652CD1"/>
+        <stop offset="1" stop-color="#652CD1" stop-opacity="0"/>
+        </radialGradient>
+        </defs>
+    </svg>
+
+</body>
+</html>

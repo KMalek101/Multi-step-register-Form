@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <svg class="svg-1" width="749" height="749" viewBox="0 0 749 749" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="374.5" cy="374.5" r="374.5" fill="url(#paint0_radial_779_2273)" fill-opacity="0.3"/>
+        <defs>
+        <radialGradient id="paint0_radial_779_2273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(374.5 374.5) rotate(90) scale(374.5)">
+        <stop stop-color="#652CD1"/>
+        <stop offset="1" stop-color="#652CD1" stop-opacity="0"/>
+        </radialGradient>
+        </defs>
+    </svg>
+
+    <div class="container">
+
+        <h3>Register</h3>
+
+        <label class="name-label">
+            Name
+            <input id="nameInput" placeholder="enter your name">
+        </label>
+
+        <label class="email-label">
+            Email
+            <input id="emailInput" type="email" placeholder="example@gmail.com">
+        </label>
+
+        <div class="button-container">
+            <button onclick="redirect()">Continue</button>
+        </div>
+
+
+        <!-- scripting -->
+        <script>
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            function redirect(nameVal, emailVal) {
+                var nameVal = document.querySelector('.name-label input').value;
+                var emailVal = document.getElementById('emailInput').value;
+                
+
+                if (nameVal.trim() === '') {
+                    alert('Please fill in the name field.');
+                    return;
+                }
+
+                if (emailVal.trim() === '' || !emailRegex.test(emailVal)){
+                    alert('Please Enter a Valid Email Address');
+                    return;
+                }
+                
+                localStorage.setItem('savedName', nameVal);
+                localStorage.setItem('savedEmail', emailVal);
+                window.location.href = 'index2.html';
+            }
+            const input = document.getElementById('nameInput');
+            const email = document.getElementById('emailInput');
+
+            input.addEventListener('input', function() {
+                if (input.value.length > 0) {
+                    event.target.style.borderColor = '#652CD1';
+                }
+            });
+
+
+            email.addEventListener('input', function() {
+                if (email.value.trim() === '' || !emailRegex.test(email.value)){
+                    event.target.style.borderColor = 'red';
+                }
+                else{
+                    event.target.style.borderColor = '#652CD1';
+                }
+            });
+        </script>
+
+
+    </div>
+
+    <div class="slider">
+        <p>Step 1 of 3</p>
+        <div class="circles current"></div>            
+        <div class="circles"></div>            
+        <div class="circles"></div>                
+    </div>
+
+    <svg class="svg-2" width="749" height="749" viewBox="0 0 749 749" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="374.5" cy="374.5" r="374.5" fill="url(#paint0_radial_779_2273)" fill-opacity="0.3"/>
+        <defs>
+        <radialGradient id="paint0_radial_779_2273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(374.5 374.5) rotate(90) scale(374.5)">
+        <stop stop-color="#652CD1"/>
+        <stop offset="1" stop-color="#652CD1" stop-opacity="0"/>
+        </radialGradient>
+        </defs>
+    </svg>
+
+</body>
+</html>
